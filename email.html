@@ -144,30 +144,26 @@
 }
 
 .copy-row {
-  direction: ltr;
-}
-    
-.copy-row input,
-.copy-row textarea {
-  width: 100%;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 8px;
+  align-items: start;
 }
 
 .copy-row input,
 .copy-row textarea {
+  width: 100%;
   direction: rtl;
 }
-    
+
 .copy-row .copy-btn {
   width: 90px;
   height: 36px;
   padding: 4px;
-
-  font-size: 12px;      /* smaller text */
+  font-size: 12px;
   line-height: 1;
-
-  white-space: nowrap;  /* prevents line break */
+  white-space: nowrap;
   overflow: hidden;
-
   display: flex;
   align-items: center;
   justify-content: center;
