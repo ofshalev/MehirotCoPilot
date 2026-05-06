@@ -132,7 +132,6 @@
 <body>
 
 <div class="wrapper">
-  <h2>מחולל מייל - פניית ציבור</h2>
 
   <div class="container">
     
@@ -147,12 +146,12 @@
 
   <label style="display:inline-flex; align-items:center;">
     <input type="radio" name="gender" value="male" checked>
-    זכר
+    אדון
   </label>
 
   <label style="display:inline-flex; align-items:center;">
     <input type="radio" name="gender" value="female">
-    נקבה
+    גברת
   </label>
 
 </div>
@@ -164,17 +163,11 @@
       <label>שם</label>
       <input id="name">
 
-      <label>תעודת זהות</label>
-      <input id="id">
-
       <label>טלפון</label>
       <input id="phone">
 
       <label>אימייל</label>
       <input id="email">
-      
-      <label>מס' רכב</label>
-      <input id="vehicle">
 
       <label>מקום האירוע</label>
       <input id="place">
@@ -222,8 +215,6 @@ function generateEmail() {
   const selectedGender = document.querySelector('input[name="gender"]:checked');
   const gender = selectedGender ? selectedGender.value : "male";
   const name = document.getElementById("name").value;
-  const id = document.getElementById("id").value;
-  const vehicle = document.getElementById("vehicle").value;
   const phone = document.getElementById("phone").value;
   const email = document.getElementById("email").value;
   const place = document.getElementById("place").value;
@@ -238,17 +229,15 @@ function generateEmail() {
     applicantText = "התקבלה שיחה לחדר הבקרה מאזרח שטוען שלא קיבל מענה לפנייתו";
   }
 
-  const subjectText = `פניית ציבור ללא מענה - ${name || "ללא שם"} - ת.ז ${id || ""}`;
+  const subjectText = `פניית ציבור ללא מענה - ${name || "ללא שם"} `;
   
   const bodyText = `שלום רב,
 
 ${applicantText}
 
 שם: ${name}
-ת.ז: ${id}
 מס' טלפון: ${phone}
 אימייל: ${email}
-מס' רכב: ${vehicle}
 מקום האירוע: ${place}
 תאריך האירוע: ${eventDate}
 תאריך הפנייה: ${requestDate}
@@ -300,8 +289,6 @@ function formatDate(value) {
 function clearFields(button) {
   // Clear all input fields
   document.getElementById('name').value = '';
-  document.getElementById('id').value = '';
-  document.getElementById('vehicle').value = '';
   document.getElementById('phone').value = '';
   document.getElementById('email').value = '';
   document.getElementById('place').value = '';
