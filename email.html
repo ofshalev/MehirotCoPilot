@@ -27,9 +27,17 @@
     }
 
     .container {
-      display: flex;
-      gap: 24px;
-    }
+  display: flex;
+  gap: 24px;
+}
+
+.container > div:first-child {
+  flex: 1.4;
+}
+
+.container > div:last-child {
+  flex: 1;
+}
 
     .column {
       flex: 1;
