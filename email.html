@@ -128,19 +128,22 @@
   }
 
 .copy-row {
-  display: flex;
-  align-items: stretch;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 8px;
+  align-items: start;
 }
 
-.copy-row textarea,
-.copy-row input {
-  flex: 1;
+.copy-row input,
+.copy-row textarea {
+  width: 100%;
 }
 
-.copy-btn {
-  width: 140px;
-  flex-shrink: 0;
+.copy-row .copy-btn {
+  width: 120px;
+  height: 44px;
+  padding: 6px;
+  font-size: 16px;
 }
     
   </style>
