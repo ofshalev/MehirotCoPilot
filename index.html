@@ -273,71 +273,14 @@
 }
 
 
-.report-item.color-red {
-  background: #fee2e2;
-  border-color: #ef4444;
-}
-
-.report-item.color-yellow {
-  background: #fef9c3;
-  border-color: #eab308;
-}
-
-.report-item.color-green {
-  background: #dcfce7;
-  border-color: #22c55e;
-}
-
-.report-item.color-blue {
-  background: #dbeafe;
-  border-color: #3b82f6;
-}
-
-.report-item.color-brown {
-  background: #f5efe6;
-  border-color: #8b5e3c;
-}
-
-.report-text,
-.report-edit {
+.tool-frame {
   width: 100%;
-  box-sizing: border-box;
-  direction: rtl;
-  text-align: right;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding: 10px;
-  margin: 0;
+  height: 900px;
+  border: none;
+  border-radius: 16px;
+  background: white;
 }
-
-.report-text {
-  direction: rtl;
-  text-align: right;
-  white-space: pre-wrap;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-}
-
-.report-edit {
-  width: 100%;
-  box-sizing: border-box;
-  direction: rtl;
-  text-align: right;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding: 10px;
-  margin: 0;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  resize: vertical;
-  display: block;
-}
-
+    
   </style>
 </head>
 
@@ -356,50 +299,25 @@
   <button class="tab" onclick="openTab('email', this)">פניות הציבור</button>
 </div>
 
-<div id="eventlog" class="tab-content event-log active">
-  <body>
-  <div class="app">
-    <div class="panel header-panel">
-      <h1>יומן</h1>
-    </div>
-
-    <div class="layout">
-      <div class="panel">
-        <h2 class="panel-title">הוספת דיווח חדש</h2>
-
-        <label for="reportInput">תוכן הדיווח</label>
-        <textarea id="reportInput" placeholder="כתוב כאן את הדיווח שהתקבל מהנהג / סייר / משטרה..."></textarea>
-
-        <div class="button-row">
-          <button class="primary-btn" onclick="addReport(this)">הוסף דיווח</button>
-          <button class="danger-btn" onclick="clearInput(this)">נקה טקסט</button>
-        </div>
-      </div>
-
-      <div class="panel">
-        
-        <div id="reportList" class="report-list"></div>
-
-        
-      </div>
-    </div>
-  </div>
-</body>
+<div id="log" class="tab-content active">
+  <iframe src="log.html" class="tool-frame"></iframe>
 </div>
 
-<div id="traffic" class="tab-content traffic">
-  <h2></h2>
+<div id="traffic" class="tab-content">
+  <iframe src="traffic.html" class="tool-frame"></iframe>
 </div>
 
-<div id="sms" class="tab-content sms">
-  <h2></h2>
+<div id="sms" class="tab-content">
+  <iframe src="sms.html" class="tool-frame"></iframe>
 </div>
 
-<div id="email" class="tab-content email">
-  <h2></h2>
+<div id="email" class="tab-content">
+  <iframe src="email.html" class="tool-frame"></iframe>
 </div>
 
 <script>
+
+  
 function openTab(tabId, btn) {
   // hide all content
   document.querySelectorAll('.tab-content').forEach(tab => {
