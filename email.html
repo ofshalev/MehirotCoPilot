@@ -129,7 +129,7 @@
 
 .copy-row {
   display: grid;
-  grid-template-columns: 1fr 90px;
+  grid-template-columns: 1fr 140px;
   gap: 8px;
   align-items: start;
   direction: rtl;
@@ -232,20 +232,23 @@
          
         <label>נמענים</label>
          <div class="copy-row">
+           <button class="small-button" onclick="copyRecipients()">העתק נמענים</button>
         <div id="toEmails">פניות הציבור, בקרה, יוני קרבונרה, אווה יהודאי</div>
-        <button class="small-button" onclick="copyRecipients()">העתק נמענים</button>
+        
         </div>
       </div>
 
       <label>נושא</label>
       <div class="copy-row">
+        <button class="small-button" onclick="copySubject()">העתק נושא</button>
       <textarea id="subject"></textarea>
-      <button class="small-button" onclick="copySubject()">העתק נושא</button>
+      
       </div>
       <label>גוף המייל</label>
       <div class="copy-row">
+        <button class="small-button" onclick="copyBody()">העתק גוף</button>
       <textarea class="body-mail" id="output"></textarea>
-      <button class="small-button" onclick="copyBody()">העתק גוף</button>
+      
       </div>
     </div>
 
