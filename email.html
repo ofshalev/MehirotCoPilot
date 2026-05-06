@@ -129,21 +129,32 @@
 
 .copy-row {
   display: grid;
-  grid-template-columns: 1fr 120px;
+  grid-template-columns: 1fr 90px;
   gap: 8px;
   align-items: start;
+  direction: rtl;
 }
 
+.copy-row {
+  direction: ltr;
+}
+    
 .copy-row input,
 .copy-row textarea {
   width: 100%;
 }
 
+.copy-row input,
+.copy-row textarea {
+  direction: rtl;
+}
+    
 .copy-row .copy-btn {
-  width: 120px;
-  height: 44px;
-  padding: 6px;
-  font-size: 16px;
+  width: 90px;
+  height: 36px;
+  padding: 4px;
+  font-size: 15px;
+  white-space: normal;
 }
     
   </style>
