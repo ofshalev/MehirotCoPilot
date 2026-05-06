@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+
+<style>
+
+
+.two-columns {
+    display: grid;
+    grid-template-columns: 1.2fr 1.2fr 0.8fr;
+    gap: 12px;
+    width: 100%;
+}
+
+.column {
+    min-width: 0;
+}
+.column {
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 10px;
+}
+body {
+    direction: rtl;
+    font-family: Arial;
+    padding: 20px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 10px 18px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.main-button {
+    background: #dbe8ff;
+}
+
+select {
+    padding: 8px;
+    font-size: 16px;
+}
+
+.section {
+    margin-bottom: 25px;
+}
+
+.combo-grid {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.combo-grid div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+textarea {
+    width: 100%;
+    height: 180px;
+    font-size: 16px;
+}
+
+.two-columns {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 20px !important;
+}
+
+.top-controls {
+    margin-bottom: 20px;
+}
+
+.top-controls h3 {
+    margin-bottom: 8px;
+}
+
+.top-controls .button-group {
+    margin-bottom: 15px;
+}
+
+.two-columns {
+    display: grid !important;
+    grid-template-columns: 0.9fr 1fr 1fr 1fr !important;
+    gap: 12px !important;
+    width: 100% !important;
+}
+
+.column {
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.combo-grid {
+    display: flex !important;
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+}
+
+.open-road-holder {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.small-button {
+    padding: 4px 10px;
+    font-size: 13px;
+    height: 32px;
+    white-space: nowrap;
+}
+
+.top-right-column {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px;
+}
+#fromInterchange,
+#toInterchange {
+    min-width: 140px;
+    max-width: 140px;
+}
+.active-button {
+    background-color: #4a90e2;
+    color: white;
+}
+.selected-button {
+    background-color: #4a90e2;
+    color: white;
+    opacity: 0.85;
+}
+.selected-button {
+    background-color: #4a90e2 !important;
+    color: white !important;
+    opacity: 0.85 !important;
+}
+.selected-button {
+    background-color: #4a90e2 !important;
+    color: white !important;
+    opacity: 0.85 !important;
+
+    transform: translateY(2px);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.25);
+}
+.selected-button {
+    background-color: #4a90e2 !important;
+    color: white !important;
+    opacity: 0.85 !important;
+
+    transform: translateY(2px) !important;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.25) !important;
+}
+button {
+    transition: all 0.15s ease;
+}
+.flash-button {
+    transition: background-color 0.2s ease;
+}
+
+.flash-button:active {
+    background-color: #4a90e2 !important;
+    color: white !important;
+}
+select {
+    padding: 6px 10px;
+    border: 1px solid #d8d8d8;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 14px;
+
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);
+}
+#smsOutput {
+    font-size: 18px;
+
+    padding: 10px;
+
+    height: 200px;
+
+    border: 1px solid #d8d8d8;
+    border-radius: 12px;
+
+    resize: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-controls">
+
+
+</div>
+
+<div id="accidentSection">
+<div class="two-columns">
+<div class="top-right-column">
+
+<h3>סוג דיווח</h3>
+
+<div class="button-group">
+
+    <button
+    class="report-button"
+    onclick="
+        setReportType('דיווח ראשוני');
+        activateButton(this, '.report-button');
+    "
+>
+        דיווח ראשוני
+    </button>
+
+    <button
+    class="report-button"
+    onclick="
+        setReportType('דיווח מפורט');
+        activateButton(this, '.report-button');
+    "
+>
+        דיווח מפורט
+    </button>
+
+    <button
+    class="report-button"
+    onclick="
+        setReportType('עדכון');
+        activateButton(this, '.report-button');
+    "
+>
+        עדכון
+    </button>
+
+</div>
+
+
+<h2 style="display:none;">סוג אירוע</h2>
+
+<div class="button-group">
+    <button
+    class="main-button event-button" style="display:none;"
+    onclick="
+        selectType('תאונת דרכים');
+        activateButton(this, '.event-button');
+    "
+>
+        תאונת דרכים
+    </button>
+
+</div>
+</div>
+    <div class="column">
+        <div class="section">
+            <h3>מעורבים</h3>
+
+            <div class="combo-grid">
+                <div>
+                    <label>רכב פרטי</label>
+                    <select id="cars" onchange="generateSMS()"></select>
+                </div>
+
+                <div>
+                    <label>משאית</label>
+                    <select id="trucks" onchange="generateSMS()"></select>
+                </div>
+
+                <div>
+                    <label>אופנוע</label>
+                    <select id="motorcycles" onchange="generateSMS()"></select>
+                </div>
+
+                <div>
+                    <label>אוטובוס</label>
+                    <select id="buses" onchange="generateSMS()"></select>
+                </div>
+
+                <div>
+                    <label>אופניים</label>
+                    <select id="bicycles" onchange="generateSMS()"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="section">
+            <h3>מיקום</h3>
+
+            <select id="placeType" onchange="updatePlaceFields(); generateSMS();">
+                <option value="">בחר</option>
+                <option value="במחלף">במחלף</option>
+                <option value="בין מחלפים">בין מחלפים</option>
+            </select>
+
+            <div id="placeFields"></div>
+        </div>
+
+        <div class="section" id="directionSection" style="display:none;">
+    <h3>לכיוון</h3>
+
+    <div id="directionButtons" class="button-group"></div>
+</div>
+
+        <div class="section">
+            <h3>נתיבים חסומים</h3>
+
+            <div class="combo-grid">
+                <div>
+                    <label>כמות</label>
+                    <select id="blockedLanes" onchange="generateSMS()">
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>צד</label>
+                    <select id="blockedSide" onchange="generateSMS()">
+                        <option value="">בחר</option>
+                        <option value="ימין">ימין</option>
+                        <option value="שמאל">שמאל</option>
+                        <option value="אמצעי">אמצעי</option>
+                    </select>
+                </div>
+<div style="margin-top: 24px;">
+    <button
+        id="openRoadButton"
+	class="small-button flash-button"
+        type="button"
+        onclick="openRoad()"
+        style="display:none;"
+    >
+        הכביש נפתח לתנועה
+    </button>
+</div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="section">
+            <h3>כוחות</h3>
+
+            <div class="combo-grid">
+                <div>
+                    <label>סייר</label>
+                    <select id="sayarStatus" onchange="generateSMS()">
+                        <option value="">בחר</option>
+                        <option>במקום</option>
+                        <option>בדרך</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>מתנ״א</label>
+                    <select id="matnaStatus" onchange="generateSMS()">
+                        <option value="">בחר</option>
+                        <option>במקום</option>
+                        <option>בדרך</option>
+                    </select>
+                </div>
+
+		<div>
+    		<label>מד״א</label>
+
+    		<select id="madaStatus" onchange="generateSMS()">
+        		<option value="">בחר</option>
+        		<option>במקום</option>
+        		<option>בדרך</option>
+    		</select>
+		</div>
+
+            </div>
+        </div>
+
+
+<div class="section">
+
+    <h3>נפגעים</h3>
+
+    <div id="injuriesContainer">
+
+	<button class="flash-button" type="button" onclick="addInjuryRow()">
+        	+ הוסף נפגע
+    	</button>
+
+        <button class="flash-button" type="button" onclick="removeInjuryRow()">
+    - הסר נפגע
+</button>
+      </div>
+
+    </div>
+
+    <br>
+
+    
+
+</div>
+
+
+    </div>
+
+</div>
+<h3>SMS</h3>
+
+<button class="flash-button" onclick="copySMS()">העתק טקסט</button>
+<button
+    class="flash-button"
+    onclick="clearAll()"
+>
+    נקה הכל
+</button>
+<br><br>
+
+<textarea id="smsOutput"></textarea>
+
+<script>
+
+const interchanges = [
+   "חולות",
+    "מבוא איילון",
+    "משה דיין",
+    "קוממיות",
+   "יוספטל",
+    "דב הוז",
+    "וולפסון",
+    "חולון",
+   "קיבוץ גלויות",
+    "לה גוארדיה",
+    "השלום",
+    "ארלוזורוב",
+   "ההלכה",
+    "רוקח",
+    "קקל",
+    "גלילות",
+    "שבעת הכוכבים",
+    "המעפילים",
+    "שמריהו",
+    "שפיים",
+   "יקום",
+    "וינגייט",
+    "פולג",
+    "גשר השלום",
+"גשר הארי",
+"נתניה",
+];
+
+let reportType = "";
+let selectedDirection = "";
+let openingText = "";
+
+function activateButton(button, groupSelector) {
+
+    document.querySelectorAll(groupSelector)
+        .forEach(btn => btn.classList.remove("selected-button"));
+
+    button.classList.add("selected-button");
+}
+
+function copySMS() {
+
+    generateSMS();
+
+    const textarea =
+        document.getElementById("smsOutput");
+
+    navigator.clipboard.writeText(textarea.value);
+}
+
+function updateDirectionButtons() {
+
+    const placeType =
+        document.getElementById("placeType")?.value || "";
+
+    const section =
+        document.getElementById("directionSection");
+
+    const buttons =
+        document.getElementById("directionButtons");
+
+    if (placeType !== "במחלף") {
+        section.style.display = "none";
+        selectedDirection = "";
+        generateSMS();
+        return;
+    }
+
+    section.style.display = "block";
+
+    const interchange =
+        document.getElementById("singleInterchange")?.value || "";
+
+    let directions = ["צפון", "דרום"];
+
+    if (
+        interchange === "קיבוץ גלויות" ||
+        interchange === "גלילות" ||
+        interchange === "שמריהו"
+    ) {
+        directions = ["צפון", "דרום", "מזרח", "מערב"];
+    }
+
+    buttons.innerHTML = "";
+
+    directions.forEach(direction => {
+        buttons.innerHTML += `
+            <button
+    class="direction-button"
+    onclick="
+        setDirection('לכיוון ${direction}');
+        activateButton(this, '.direction-button');
+    "
+>
+                ${direction}
+            </button>
+        `;
+    });
+
+    selectedDirection = "";
+    generateSMS();
+}
+
+function setReportType(type) {
+
+document.querySelectorAll(".report-button")
+    .forEach(btn => btn.classList.remove("active-button"));
+
+event.target.classList.add("active-button");
+
+    reportType = type;
+
+const button =
+    document.getElementById("openRoadButton");
+
+if (type === "עדכון") {
+    button.style.display = "inline-block";
+}
+else {
+    button.style.display = "none";
+}
+
+    generateSMS();
+}
+
+function setRoadOpened() {
+
+    roadOpened = true;
+
+    generateSMS();
+}
+
+function openRoad() {
+
+    if (reportType !== "עדכון") {
+        return;
+    }
+
+document.getElementById("blockedLanes").value = 0;
+document.getElementById("blockedSide").value = "";
+
+    document.getElementById("smsOutput").value =
+        `${openingText}
+
+הכביש נפתח לתנועה.`;
+}
+
+function addInjuryRow() {
+
+    const container = document.getElementById("injuriesContainer");
+
+    const row = document.createElement("div");
+    row.className = "injury-row combo-grid";
+
+    row.innerHTML = `
+        <div>
+            <label>כמות</label>
+
+            <select class="injuryCount" onchange="generateSMS()">
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+        </div>
+
+        <div>
+            <label>חומרה</label>
+
+            <select class="injurySeverity" onchange="generateSMS()">
+                <option value="">בחר</option>
+                <option>קל</option>
+                <option>בינוני</option>
+                <option>קשה</option>
+            </select>
+        </div>
+
+        <div>
+            <label>בי״ח</label>
+
+            <select class="injuryHospital" onchange="generateSMS()">
+                <option value="">בחר</option>
+                <option>איכילוב</option>
+                               <option>אסף הרופא</option>
+                                <option>בילינסון</option>
+		      <option>הלל יפה</option>
+                                <option>השרון</option>
+                                <option>וולפסון</option>
+		    <option>לניאדו</option>
+	            <option>מאיר</option>
+                    <option>שיבא</option>
+            </select>
+        </div>
+    `;
+
+    container.appendChild(row);
+
+    generateSMS();
+}
+
+
+function removeInjuryRow() {
+
+    const container =
+        document.getElementById("injuriesContainer");
+
+    const rows =
+        container.querySelectorAll(".injury-row");
+
+    if (rows.length > 0) {
+
+        rows[rows.length - 1].remove();
+    }
+
+    generateSMS();
+}
+
+function selectType(type) {
+
+    if (type === "תאונת דרכים") {
+        document.getElementById("accidentSection").style.display = "block";
+    }
+
+    generateDropdown("cars", 7);
+    generateDropdown("trucks", 2);
+    generateDropdown("motorcycles", 4);
+    generateDropdown("buses", 2);
+    generateDropdown("bicycles", 1);
+}
+
+function generateDropdown(id, max) {
+
+    const select = document.getElementById(id);
+
+    select.innerHTML = "";
+
+    for (let i = 0; i <= max; i++) {
+
+        select.innerHTML += `<option>${i}</option>`;
+    }
+}
+
+function updatePlaceFields() {
+
+    const value = document.getElementById("placeType").value;
+    const div = document.getElementById("placeFields");
+
+    if (value === "במחלף") {
+
+        div.innerHTML = `
+            <br>
+            <select id="singleInterchange" onchange="updateDirectionButtons(); generateSMS();">
+                ${interchanges.map(i => `<option>${i}</option>`).join("")}
+            </select>
+        `;
+	
+
+        updateDirectionButtons();
+    }
+
+    if (value === "בין מחלפים") {
+
+        div.innerHTML = `
+            <br>
+
+            <select id="fromInterchange" onchange="updateToInterchange(); generateSMS();">
+               	<option value=""></option>
+                ${interchanges.map(i => `<option>${i}</option>`).join("")}
+            </select>
+
+            <select id="toInterchange" onchange="setAutoDirection(); generateSMS();">
+              
+            </select>
+        `;
+
+        document.getElementById("directionSection").style.display = "none";
+        selectedDirection = "";
+    }
+
+    generateSMS();
+}
+
+
+function updateToInterchange() {
+
+    const from = document.getElementById("fromInterchange").value;
+    const toSelect = document.getElementById("toInterchange");
+
+    const index = interchanges.indexOf(from);
+if (from === "") {
+    toSelect.innerHTML = "";
+    selectedDirection = "";
+    generateSMS();
+    return;
+}
+    toSelect.innerHTML = `<option value="" selected hidden></option>`;
+
+
+
+    if (index > 0) {
+        toSelect.innerHTML += `<option>${interchanges[index - 1]}</option>`;
+    }
+
+    if (index < interchanges.length - 1) {
+        toSelect.innerHTML += `<option>${interchanges[index + 1]}</option>`;
+    }
+    selectedDirection = "";
+
+toSelect.selectedIndex = -1;
+
+document.activeElement.blur();
+
+setTimeout(() => {
+    generateSMS();
+}, 0);
+}
+
+function setAutoDirection() {
+
+    const from = document.getElementById("fromInterchange").value;
+    const to = document.getElementById("toInterchange").value;
+
+    const fromIndex = interchanges.indexOf(from);
+    const toIndex = interchanges.indexOf(to);
+
+    if (fromIndex === -1 || toIndex === -1) {
+        selectedDirection = "";
+        return;
+    }
+
+    if (toIndex > fromIndex) {
+        selectedDirection = "לכיוון צפון";
+    } else {
+        selectedDirection = "לכיוון דרום";
+    }
+}
+
+function setDirection(direction) {
+
+    selectedDirection = direction;
+
+    generateSMS();
+}
+
+function joinHebrew(list) {
+
+    if (list.length === 1)
+        return list[0];
+
+    if (list.length === 2)
+        return list[0] + " ו" + list[1];
+
+    return (
+        list.slice(0, -1).join(", ")
+        + " ו"
+        + list[list.length - 1]
+    );
+}
+
+function generateSMS() {
+
+    const cars = Number(document.getElementById("cars")?.value || 0);
+    const trucks = Number(document.getElementById("trucks")?.value || 0);
+    const motorcycles = Number(document.getElementById("motorcycles")?.value || 0);
+    const buses = Number(document.getElementById("buses")?.value || 0);
+    const bicycles = Number(document.getElementById("bicycles")?.value || 0);
+
+    const blockedLanes = Number(document.getElementById("blockedLanes")?.value || 0);
+    const blockedSide = document.getElementById("blockedSide")?.value || "";
+    const sayar = document.getElementById("sayarStatus")?.value || "";
+    const matna = document.getElementById("matnaStatus")?.value || "";
+    const mada = document.getElementById("madaStatus")?.value || "";
+
+    let involved = [];
+
+  if (cars === 1)
+    involved.push("רכב פרטי");
+else if (cars > 1)
+    involved.push(`${cars} רכבים פרטיים`);
+
+if (trucks === 1)
+    involved.push("משאית");
+else if (trucks > 1)
+    involved.push(`${trucks} משאיות`);
+
+if (motorcycles === 1)
+    involved.push("אופנוע");
+else if (motorcycles > 1)
+    involved.push(`${motorcycles} אופנועים`);
+
+if (buses === 1)
+    involved.push("אוטובוס");
+else if (buses > 1)
+    involved.push(`${buses} אוטובוסים`);
+
+if (bicycles === 1)
+    involved.push("אופניים");
+else if (bicycles > 1)
+    involved.push(`${bicycles} זוגות אופניים`);
+
+    let involvedText = "";
+
+const totalVehicles =
+    cars + trucks + motorcycles + buses + bicycles;
+
+if (involved.length === 1) {
+
+    involvedText = involved[0];
+}
+else if (involved.length === 2) {
+
+    involvedText =
+    involved[0]
+    + " ו"
+    + (
+        /^\d/.test(involved[1])
+        ? "-"
+        : ""
+    )
+    + involved[1];
+}
+else if (involved.length > 2) {
+
+    involvedText =
+        involved.slice(0, -1).join(", ")
+        + " ו"
+        + (
+            /^\d/.test(involved[involved.length - 1])
+            ? "-"
+            : ""
+        )
+        + involved[involved.length - 1];
+}
+
+    let locationText = "";
+
+    const placeType = document.getElementById("placeType")?.value || "";
+
+    if (placeType === "במחלף") {
+        const interchange = document.getElementById("singleInterchange")?.value || "";
+        locationText = `במחלף ${interchange}`;
+    }
+
+    if (placeType === "בין מחלפים") {
+        const from = document.getElementById("fromInterchange")?.value || "";
+        const to = document.getElementById("toInterchange")?.value || "";
+        locationText = `בין מחלף ${from} למחלף ${to}`;
+    }
+
+let lanesText = "";
+
+if (blockedLanes > 0) {
+
+    if (blockedLanes === 1) {
+
+        lanesText =
+            `נתיב ${blockedSide} נחסם לתנועה.`;
+    }
+
+    else {
+
+        let sideText = "";
+
+        if (blockedSide === "ימין")
+            sideText = "ימניים";
+
+        if (blockedSide === "שמאל")
+            sideText = "שמאליים";
+
+        if (blockedSide === "אמצעי")
+            sideText = "אמצעיים";
+
+        lanesText =
+            `${blockedLanes} נתיבים ${sideText} נחסמו לתנועה.`;
+    }
+}
+
+let accidentText = "";
+
+if (totalVehicles === 1) {
+
+    accidentText =
+        `תאונת דרכים עצמית במעורבות ${involvedText}`;
+}
+else {
+
+    accidentText =
+        `תאונת דרכים במעורבות ${involvedText}`;
+}
+
+    openingText = "";
+
+let endMark = "";
+
+if (selectedDirection !== "") {
+
+    if (reportType === "דיווח ראשוני") {
+        endMark = ".";
+    }
+    else if (reportType === "דיווח מפורט") {
+        endMark = ",";
+    }
+else if (reportType === "עדכון") {
+        endMark = ":";
+    }
+}
+
+if (reportType === "דיווח ראשוני") {
+
+    openingText =
+        `דיווח ראשוני: התרחשה ${accidentText} ${locationText} ${selectedDirection}${endMark}`;
+}
+else if (reportType === "דיווח מפורט") {
+
+    openingText =
+        `בעקבות ${accidentText} ${locationText} ${selectedDirection}${endMark}`;
+}
+else {
+
+    openingText =
+        `עדכון לגבי תאונת דרכים שהתרחשה ${locationText} ${selectedDirection}${endMark}`;
+}
+
+    let sms = openingText;
+
+    if (lanesText !== "") {
+        sms += "\n\n" + lanesText;
+    }
+
+let atScene = [];
+let onWay = [];
+
+if (sayar === "במקום") {
+    atScene.push("סייר");
+}
+else if (sayar === "בדרך") {
+    onWay.push("סייר");
+}
+
+if (matna === "במקום") {
+    atScene.push("מתנ״א");
+}
+else if (matna === "בדרך") {
+    onWay.push("מתנ״א");
+}
+
+if (mada === "במקום") {
+    atScene.push("מד״א");
+}
+else if (mada === "בדרך") {
+    onWay.push("מד״א");
+}
+
+let forcesText = [];
+
+if (atScene.length > 0) {
+
+    forcesText.push(
+        `${joinHebrew(atScene)} במקום`
+    );
+}
+
+if (onWay.length > 0) {
+
+    forcesText.push(
+        `${joinHebrew(onWay)} בדרך`
+    );
+}
+
+if (forcesText.length > 0) {
+
+    sms += "\n\n" + forcesText.join(", ") + ".";
+}
+
+const injuryRows =
+    document.querySelectorAll(".injury-row");
+
+let injuriesText = [];
+
+injuryRows.forEach(row => {
+
+    const count =
+        row.querySelector(".injuryCount")?.value || "";
+
+    const severity =
+        row.querySelector(".injurySeverity")?.value || "";
+
+    const hospital =
+        row.querySelector(".injuryHospital")?.value || "";
+
+    if (count > 0 && severity && hospital) {
+
+        let injuryLine = "";
+
+        if (count == 1) {
+
+    injuryLine =
+        `פצוע במצב ${severity} אחד פונה לבי״ח ${hospital}`;
+}
+else {
+
+    injuryLine =
+        `${count} פצועים במצב ${severity} פונו לבי״ח ${hospital}`;
+}
+
+        injuriesText.push(injuryLine);
+    }
+});
+
+if (injuriesText.length > 0) {
+
+    sms += "\n\n";
+
+    sms += injuriesText.join(", ") + ".";
+}
+
+    document.getElementById("smsOutput").value = sms;
+}
+
+function clearAll() {
+    location.reload();
+}
+
+selectType('תאונת דרכים');
+
+</script></body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מחולל הודעת ווטסאפ - דיווח תנועה</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      direction: rtl;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .wrapper {
+      max-width: 950px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      padding: 24px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 24px;
+    }
+
+    .container {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .column {
+      flex: 1;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 12px;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    .segment-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    select,
+    textarea,
+    button {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #cfcfcf;
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    textarea {
+      width: 100%;
+      height: 320px;
+      padding: 10px;
+      border: 1px solid #cfcfcf;
+      border-radius: 6px;
+      resize: none;
+      line-height: 1.5;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 12px;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background-color: #25D366;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.92;
+    }
+
+	.section {
+ 	 margin-top: 82px;
+	}
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <h2>מחולל הודעת ווטסאפ - דיווח תנועה</h2>
+
+    <div class="container">
+      <div class="column">
+        <label>לצפון - קטע 1</label>
+        <div class="segment-row">
+          <select id="n1_from">
+            <option value="">מ...</option>
+            <option value="מבוא איילון">מבוא איילון</option>
+            <option value="משה דיין">משה דיין</option>
+            <option value="קוממיות">קוממיות</option>
+            <option value="יוספטל">יוספטל</option>
+	    <option value="דב הוז">דב הוז</option>
+            <option value="וולפסון">וולפסון</option>
+            <option value="חולון">חולון</option>
+            <option value="קיבוץ גלויות">קיבוץ גלויות</option>
+            <option value="לה גוארדיה">לה גוארדיה</option>
+            <option value="השלום">השלום</option>
+            <option value="ארלוזורוב">ארלוזורוב</option>
+            <option value="ההלכה">ההלכה</option>
+	    <option value="רוקח">רוקח</option>
+            <option value="קקל">קקל</option>
+            <option value="גלילות">גלילות</option>
+            <option value="שבעת הכוכבים">שבעת הכוכבים</option>
+          </select>
+
+          <select id="n1_to">
+            <option value="">עד...</option>
+            <option value="מבוא איילון">מבוא איילון</option>
+            <option value="משה דיין">משה דיין</option>
+            <option value="קוממיות">קוממיות</option>
+            <option value="יוספטל">יוספטל</option>
+	    <option value="דב הוז">דב הוז</option>
+            <option value="וולפסון">וולפסון</option>
+            <option value="חולון">חולון</option>
+            <option value="קיבוץ גלויות">קיבוץ גלויות</option>
+            <option value="לה גוארדיה">לה גוארדיה</option>
+            <option value="השלום">השלום</option>
+            <option value="ארלוזורוב">ארלוזורוב</option>
+            <option value="ההלכה">ההלכה</option>
+	    <option value="רוקח">רוקח</option>
+            <option value="קקל">קקל</option>
+            <option value="גלילות">גלילות</option>
+            <option value="שבעת הכוכבים">שבעת הכוכבים</option>
+          </select>
+        </div>
+
+        <label>לצפון - קטע 2</label>
+        <div class="segment-row">
+          <select id="n2_from">
+            <option value="">מ...</option>
+            <option value="מבוא איילון">מבוא איילון</option>
+            <option value="משה דיין">משה דיין</option>
+            <option value="קוממיות">קוממיות</option>
+            <option value="יוספטל">יוספטל</option>
+	    <option value="דב הוז">דב הוז</option>
+            <option value="וולפסון">וולפסון</option>
+            <option value="חולון">חולון</option>
+            <option value="קיבוץ גלויות">קיבוץ גלויות</option>
+            <option value="לה גוארדיה">לה גוארדיה</option>
+            <option value="השלום">השלום</option>
+            <option value="ארלוזורוב">ארלוזורוב</option>
+            <option value="ההלכה">ההלכה</option>
+	    <option value="רוקח">רוקח</option>
+            <option value="קקל">קקל</option>
+            <option value="גלילות">גלילות</option>
+            <option value="שבעת הכוכבים">שבעת הכוכבים</option>
+          </select>
+
+          <select id="n2_to">
+            <option value="">עד...</option>
+            <option value="מבוא איילון">מבוא איילון</option>
+            <option value="משה דיין">משה דיין</option>
+            <option value="קוממיות">קוממיות</option>
+            <option value="יוספטל">יוספטל</option>
+	    <option value="דב הוז">דב הוז</option>
+            <option value="וולפסון">וולפסון</option>
+            <option value="חולון">חולון</option>
+            <option value="קיבוץ גלויות">קיבוץ גלויות</option>
+            <option value="לה גוארדיה">לה גוארדיה</option>
+            <option value="השלום">השלום</option>
+            <option value="ארלוזורוב">ארלוזורוב</option>
+            <option value="ההלכה">ההלכה</option>
+	    <option value="רוקח">רוקח</option>
+            <option value="קקל">קקל</option>
+            <option value="גלילות">גלילות</option>
+            <option value="שבעת הכוכבים">שבעת הכוכבים</option>
+          </select>
+        </div>
+
+
+	<div class="section">
+  	<!-- next block -->
+	</div>
+	
+        <label>לדרום - קטע 1</label>
+        <div class="segment-row">
+          <select id="s1_from">
+            <option value="">מ...</option>
+            <option value="שבעת הכוכבים">שבעת הכוכבים</option>
+            <option value="גלילות">גלילות</option>
+            <option value="קקל">קקל</option>
+            <option value="רוקח">רוקח</option>
+	    <option value="ההלכה">ההלכה</option>
+            <option value="ארלוזורוב">ארלוזורוב</option>
+            <option value="השלום">השלום</option>
+            <option value="לה גוארדיה">לה גוארדיה</option>
+            <option value="קיבוץ גלויות">קיבוץ גלויות</option>
+            <option value="חולון">חולון</option>
+            <option value="וולפסון">וולפסון</option>
+            <option value="דב הוז">דב הוז</option>
+	    <option value="יוספטל">יוספטל</option>
+            <option value="קוממיות">קוממיות</option>
+            <option value="משה דיין">משה דיין</option>
+            <option value="מבוא איילון">מבוא איילון</option>
+          </select>
+
+          <select id="s1_to">
+            <option value="">עד...</option>
+            <option value="שבעת הכוכבים">שבעת הכוכבים</option>
+            <option value="גלילות">גלילות</option>
+            <option value="קקל">קקל</option>
+            <option value="רוקח">רוקח</option>
+	    <option value="ההלכה">ההלכה</option>
+            <option value="ארלוזורוב">ארלוזורוב</option>
+            <option value="השלום">השלום</option>
+            <option value="לה גוארדיה">לה גוארדיה</option>
+            <option value="קיבוץ גלויות">קיבוץ גלויות</option>
+            <option value="חולון">חולון</option>
+            <option value="וולפסון">וולפסון</option>
+            <option value="דב הוז">דב הוז</option>
+	    <option value="יוספטל">יוספטל</option>
+            <option value="קוממיות">קוממיות</option>
+            <option value="משה דיין">משה דיין</option>
+            <option value="מבוא איילון">מבוא איילון</option>
+          </select>
+        </div>
+
+        <label>לדרום - קטע 2</label>
+        <div class="segment-row">
+          <select id="s2_from">
+            <option value="">מ...</option>
+            <option value="שבעת הכוכבים">שבעת הכוכבים</option>
+            <option value="גלילות">גלילות</option>
+            <option value="קקל">קקל</option>
+            <option value="רוקח">רוקח</option>
+	    <option value="ההלכה">ההלכה</option>
+            <option value="ארלוזורוב">ארלוזורוב</option>
+            <option value="השלום">השלום</option>
+            <option value="לה גוארדיה">לה גוארדיה</option>
+            <option value="קיבוץ גלויות">קיבוץ גלויות</option>
+            <option value="חולון">חולון</option>
+            <option value="וולפסון">וולפסון</option>
+            <option value="דב הוז">דב הוז</option>
+	    <option value="יוספטל">יוספטל</option>
+            <option value="קוממיות">קוממיות</option>
+            <option value="משה דיין">משה דיין</option>
+            <option value="מבוא איילון">מבוא איילון</option>
+          </select>
+
+          <select id="s2_to">
+            <option value="">עד...</option>
+            <option value="שבעת הכוכבים">שבעת הכוכבים</option>
+            <option value="גלילות">גלילות</option>
+            <option value="קקל">קקל</option>
+            <option value="רוקח">רוקח</option>
+	    <option value="ההלכה">ההלכה</option>
+            <option value="ארלוזורוב">ארלוזורוב</option>
+            <option value="השלום">השלום</option>
+            <option value="לה גוארדיה">לה גוארדיה</option>
+            <option value="קיבוץ גלויות">קיבוץ גלויות</option>
+            <option value="חולון">חולון</option>
+            <option value="וולפסון">וולפסון</option>
+            <option value="דב הוז">דב הוז</option>
+	    <option value="יוספטל">יוספטל</option>
+            <option value="קוממיות">קוממיות</option>
+            <option value="משה דיין">משה דיין</option>
+            <option value="מבוא איילון">מבוא איילון</option>
+          </select>
+        </div>
+
+        <button onclick="generateMessage()">צור הודעה</button>
+      </div>
+
+      <div class="column">
+        <label for="output">הודעת ווטסאפ</label>
+        <textarea id="output"></textarea>
+        <button onclick="copyMessage()">העתק הודעה</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function buildSegment(from, to) {
+      if (from && to) {
+        return `מ${from} עד ${to}`;
+      }
+      return "";
+    }
+
+    function generateMessage() {
+      const northSegments = [
+        buildSegment(
+          document.getElementById("n1_from").value,
+          document.getElementById("n1_to").value
+        ),
+        buildSegment(
+          document.getElementById("n2_from").value,
+          document.getElementById("n2_to").value
+        )
+      ].filter(Boolean).join(", ");
+
+      const southSegments = [
+        buildSegment(
+          document.getElementById("s1_from").value,
+          document.getElementById("s1_to").value
+        ),
+        buildSegment(
+          document.getElementById("s2_from").value,
+          document.getElementById("s2_to").value
+        )
+      ].filter(Boolean).join(", ");
+
+      const message = `לצפון: ${northSegments || "התנועה זורמת"}
+לדרום: ${southSegments || "התנועה זורמת"}`;
+
+      document.getElementById("output").value = message;
+    }
+
+    function copyMessage() {
+      const text = document.getElementById("output").value;
+      navigator.clipboard.writeText(text);
+      alert("ההודעה הועתקה");
+    }
+  </script>
+
+</body>
+</html>
