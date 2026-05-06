@@ -100,22 +100,18 @@
       width: auto;
     }
 
-    .recipients {
-      margin-bottom: 15px;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      background: #fafafa;
-    }
+   .recipients {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fafafa;
 
-    .recipients div {
-      background: #f0f0f0;
-      padding: 8px;
-      border-radius: 6px;
-      font-size: 13px;
-      margin-top: 4px;
-      word-break: break-all;
-    }
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 12px;
+  align-items: start;
+}
 
     .small-button {
       margin-top: 6px;
@@ -166,13 +162,6 @@
   justify-self: start;
 }
 
-
-#toEmails,
-#subject {
-  min-height: 44px;
-  height: 44px;
-  resize: none;
-}
     
   </style>
 </head>
