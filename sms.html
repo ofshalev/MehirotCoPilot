@@ -182,16 +182,17 @@ select {
     box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);
 }
 #smsOutput {
-    font-size: 18px;
-
-    padding: 10px;
-
+    width: 100%;
     height: 200px;
-
+    font-size: 18px;
+    padding: 10px;
     border: 1px solid #d8d8d8;
     border-radius: 12px;
-
     resize: none;
+    box-sizing: border-box;
+    direction: rtl;
+    text-align: right;
+    line-height: 1.5;
 }
 </style>
 </head>
@@ -244,24 +245,7 @@ select {
 </div>
 
 
-<h2 style="display:none;">סוג אירוע</h2>
-
-<div class="button-group">
-    <button
-    class="main-button event-button" style="display:none;"
-    onclick="
-        selectType('תאונת דרכים');
-        activateButton(this, '.event-button');
-    "
->
-        תאונת דרכים
-    </button>
-
-</div>
-</div>
-    <div class="column">
-        <div class="section">
-            <h3>מעורבים</h3>
+	<h3>מעורבים</h3>
 
             <div class="combo-grid">
                 <div>
@@ -289,8 +273,11 @@ select {
                     <select id="bicycles" onchange="generateSMS()"></select>
                 </div>
             </div>
-        </div>
-    </div>
+
+
+</div>
+
+
 
     <div class="column">
         <div class="section">
@@ -386,9 +373,8 @@ select {
         		<option>בדרך</option>
     		</select>
 		</div>
-
-            </div>
-        </div>
+	     </div>
+       </div>
 
 
 <div class="section">
@@ -408,29 +394,33 @@ select {
 
     </div>
 
-    <br>
+
 
     
 
 </div>
 
+<div class="column sms-column">
+    <div class="section">
+        <h3>SMS</h3>
 
+        <div class="sms-buttons">
+            <button class="flash-button" onclick="copySMS()">העתק טקסט</button>
+
+            <button class="flash-button" onclick="clearAll()">
+                נקה הכל
+            </button>
+        </div>
+	<br></br>
+        <textarea id="smsOutput"></textarea>
+    </div>
+</div>
+
+</div>
+</div>
     </div>
 
 </div>
-<h3>SMS</h3>
-
-<button class="flash-button" onclick="copySMS()">העתק טקסט</button>
-<button
-    class="flash-button"
-    onclick="clearAll()"
->
-    נקה הכל
-</button>
-<br><br>
-
-<textarea id="smsOutput"></textarea>
-
 <script>
 
 const interchanges = [
@@ -961,7 +951,7 @@ else {
     let sms = openingText;
 
     if (lanesText !== "") {
-        sms += "\n\n" + lanesText;
+        sms += "\n" + lanesText;
     }
 
 let atScene = [];
@@ -1006,7 +996,7 @@ if (onWay.length > 0) {
 
 if (forcesText.length > 0) {
 
-    sms += "\n\n" + forcesText.join(", ") + ".";
+    sms += "\n" + forcesText.join(", ") + ".";
 }
 
 const injuryRows =
@@ -1046,7 +1036,7 @@ else {
 
 if (injuriesText.length > 0) {
 
-    sms += "\n\n";
+    sms += "\n";
 
     sms += injuriesText.join(", ") + ".";
 }
