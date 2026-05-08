@@ -455,7 +455,8 @@ const interchanges = [
 let reportType = "";
 let selectedDirection = "";
 let openingText = "";
-
+let roadOpened = false;
+	
 function activateButton(button, groupSelector) {
 
     document.querySelectorAll(groupSelector)
@@ -562,14 +563,13 @@ function openRoad() {
         return;
     }
 
-document.getElementById("blockedLanes").value = 0;
-document.getElementById("blockedSide").value = "";
+    roadOpened = true;
 
-    document.getElementById("smsOutput").value =
-        `${openingText}
-הכביש נפתח לתנועה.`;
+    document.getElementById("blockedLanes").value = 0;
+    document.getElementById("blockedSide").value = "";
+
+    generateSMS();
 }
-
 function addInjuryRow() {
 
     const container = document.getElementById("injuriesContainer");
@@ -875,7 +875,12 @@ else if (involved.length > 2) {
 
 let lanesText = "";
 
-if (blockedLanes > 0) {
+let lanesText = "";
+
+if (roadOpened) {
+    lanesText = "הכביש נפתח לתנועה.";
+}
+else if (blockedLanes > 0) {
 
     if (blockedLanes === 1) {
 
