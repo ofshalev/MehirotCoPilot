@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>מקטעי כביש</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      direction: rtl;
+      padding: 30px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .roads-table {
+      direction: rtl;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px 10px;
+    }
+
+    .roads-header {
+      font-weight: bold;
+      text-align: center;
+      background: #dfe8f3;
+      border: 1px solid #c8d6e5;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 18px;
+      display: block;
+    }
+
+    .road-cell {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 14px;
+      min-height: 20px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .road-cell.empty {
+      background: transparent;
+      border: none;
+    }
+
+    .km {
+      direction: ltr;
+      white-space: nowrap;
+      color: #333;
+      font-weight: bold;
+    }
+
+    @media (max-width: 800px) {
+      .roads-table {
+        grid-template-columns: 1fr;
+      }
+
+      .road-cell.empty {
+        display: none;
+      }
+    }
+.road-title {
+  justify-content: center;
+  font-weight: bold;
+  text-align: center;
+}
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>מקטעי כביש</h2>
+
+    <div class="roads-table">
+
+      <div class="roads-header">דרום</div>
+      <div class="roads-header">מרכז</div>
+      <div class="roads-header">צפון</div>
+
+      <div class="road-cell">
+        <span>חולות-מבוא איילון</span>
+        <span class="km">2.5-0</span>
+      </div>
+      <div class="road-cell">
+        <span>חולון-קיבוץ גלויות</span>
+        <span class="km">13-12</span>
+      </div>
+      <div class="road-cell">
+        <span>גלילות-שבעת הכוכבים</span>
+        <span class="km">26.5-24</span>
+      </div>
+
+      <div class="road-cell">
+        <span>מבוא איילון-משה דיין</span>
+        <span class="km">4.5-2.5</span>
+      </div>
+      <div class="road-cell">
+        <span>קיבוץ גלויות-לה גוארדיה</span>
+        <span class="km">14.5-13</span>
+      </div>
+      <div class="road-cell">
+        <span>שבעת הכוכבים-המעפילים</span>
+        <span class="km">28.5-26.5</span>
+      </div>
+
+      <div class="road-cell">
+        <span>משה דיין-קוממיות</span>
+        <span class="km">6-4.5</span>
+      </div>
+      <div class="road-cell">
+        <span>לה גוארדיה-השלום</span>
+        <span class="km">16-14.5</span>
+      </div>
+      <div class="road-cell">
+        <span>המעפילים-כביש 531</span>
+        <span class="km">30-28.5</span>
+      </div>
+
+      <div class="road-cell">
+        <span>קוממיות-יוספטל</span>
+        <span class="km">7.5-6</span>
+      </div>
+      <div class="road-cell">
+        <span>השלום-ארלוזורוב</span>
+        <span class="km">17-16</span>
+      </div>
+      <div class="road-cell">
+        <span>כביש 531-כביש 543</span>
+        <span class="km">32-30</span>
+      </div>
+
+      <div class="road-cell">
+        <span>יוספטל-דב הוז</span>
+        <span class="km">8.5-7.5</span>
+      </div>
+      <div class="road-cell">
+        <span>ארלוזורוב-ההלכה</span>
+        <span class="km">18-17</span>
+      </div>
+      <div class="road-cell">
+        <span>כביש 543-כביש 2</span>
+        <span class="km">34-32</span>
+      </div>
+
+      <div class="road-cell">
+        <span>דב הוז-וולפסון</span>
+        <span class="km">10-8.5</span>
+      </div>
+      <div class="road-cell">
+        <span>ההלכה-רוקח</span>
+        <span class="km">19.5-18</span>
+      </div>
+      <div class="road-cell road-title">
+  <span>כביש 2</span>
+</div>
+
+      <div class="road-cell">
+        <span>וולפסון-חולון</span>
+        <span class="km">12-10</span>
+      </div>
+      <div class="road-cell">
+        <span>רוקח-קק"ל</span>
+        <span class="km">21.5-19.5</span>
+      </div>
+      <div class="road-cell">
+        <span>שפיים-יקום</span>
+        <span class="km">34-32</span>
+      </div>
+
+      <div class="road-cell empty"></div>
+      <div class="road-cell">
+        <span>קק"ל-גלילות</span>
+        <span class="km">24-21.5</span>
+      </div>
+      <div class="road-cell">
+        <span>יקום-מכון וינגייט</span>
+        <span class="km">36-34</span>
+      </div>
+
+      <div class="road-cell empty"></div>
+      <div class="road-cell empty"></div>
+      <div class="road-cell">
+        <span>מכון וינגייט-פולג</span>
+        <span class="km">38-36</span>
+      </div>
+
+      <div class="road-cell empty"></div>
+      <div class="road-cell empty"></div>
+      <div class="road-cell">
+        <span>פולג-גשר השלום</span>
+        <span class="km">40-38</span>
+      </div>
+
+      <div class="road-cell empty"></div>
+      <div class="road-cell empty"></div>
+      <div class="road-cell">
+        <span>גשר השלום-גשר האר"י</span>
+        <span class="km">42-40</span>
+      </div>
+
+      <div class="road-cell empty"></div>
+      <div class="road-cell empty"></div>
+      <div class="road-cell">
+        <span>גשר האר"י-נתניה</span>
+        <span class="km">44-42</span>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
